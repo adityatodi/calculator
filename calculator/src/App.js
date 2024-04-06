@@ -5,7 +5,6 @@ import {
 import "./App.css";
 
 function App() { 
-
   const inputRef = useRef(null); 
   const resultRef = useRef(null); 
   const [result, setResult] = useState(0); 
@@ -15,45 +14,40 @@ function App() {
     setResult((result) => result + Number(inputRef.current.value)); 
   }; 
  
-  function minus(e) { 
-  	// Add the code for the minus function 
-    e.preventDefault(); 
+  function minus(e) {
+    e.preventDefault();
     setResult((result) => result - Number(inputRef.current.value)); 
   };
  
   function times(e) { 
-    // Add the code for the plus function 
-    e.preventDefault(); 
+    e.preventDefault();
     setResult((result) => result * Number(inputRef.current.value)); 
   }; 
  
   function divide(e) { 
-    // Add the code for the divide function 
-    e.preventDefault(); 
-    if (Number(inputRef.current.value) === 0) return alert("Cannot divide by 0");
+    e.preventDefault();
     setResult((result) => result / Number(inputRef.current.value)); 
   };
  
   function resetInput(e) { 
-    // Add the code for the resetInput function 
-    e.preventDefault();
-    inputRef.current.value = "Type a number";
-  }; 
+  	e.preventDefault();
+    inputRef.current.value = 0;
+  };
  
   function resetResult(e) { 
-  	// Add the code for the resetResult function
-    e.preventDefault(); 
-    setResult(() => 0); 
-    inputRef.current.value = "Type a number";
+  	e.preventDefault();
+    setResult(0); 
   }; 
  
   return ( 
     <div className="App"> 
       <div> 
-        <h1>Calculator</h1> 
+        <h1>Simplest Working Calculator</h1> 
       </div> 
       <form> 
-        <p ref={resultRef}>Result: {result} </p> 
+        <p ref={resultRef}> 
+          {result} 
+        </p> 
         <input
           pattern="[0-9]" 
           ref={inputRef} 
@@ -61,14 +55,14 @@ function App() {
           placeholder="Type a number" 
         /> 
         <button onClick={plus}>add</button>
-        <button onClick={minus}>substract</button>
+        <button onClick={minus}>subtract</button>
         <button onClick={times}>multiply</button>
         <button onClick={divide}>divide</button>
-        <button onClick={resetInput}>resetInput</button>
-        <button onClick={resetResult}>resetResult</button> 
+        <button onClick={resetInput}>reset input</button>
+        <button onClick={resetResult}>reset result</button>
       </form> 
     </div> 
   ); 
 } 
  
-export default App;
+export default App; 
